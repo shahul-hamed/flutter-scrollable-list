@@ -5,26 +5,32 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:example/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = _MyHttpOverrides();
+  testWidgets('Login widgets smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
+    expect(find.byKey(Key("image")), findsOneWidget);
     expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // find email and password fields
+    var email = find.byKey(Key("email"));
+    expect(email, findsOneWidget);
+    var pass = find.byKey(Key("password"));
+    expect(pass, findsOneWidget);
+    await tester.enterText(email, "test@gmail.com");
+    await tester.enterText(pass, "123456");
+    await tester.tap(find.byKey(Key('login')));
+    print("login test completed");
   });
 }
+class _MyHttpOverrides extends HttpOverrides {}
