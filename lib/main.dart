@@ -42,7 +42,7 @@ class _LoginDemoState extends State<LoginDemo> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: const Text("Login Page"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -53,15 +53,15 @@ class _LoginDemoState extends State<LoginDemo> {
                 child: Container(
                     width: 200,
                     height: 150,
-                    key: Key("image"),
+                    key: const Key("image"),
                     /*decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(50.0)),*/
                     child: Image.network('https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')),
               ),
             ),
-            SizedBox(height: 10,),
-            Padding(
+            const SizedBox(height: 10,),
+            const Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: EdgeInsets.symmetric(horizontal: 17),
               child: TextField(
@@ -72,8 +72,8 @@ class _LoginDemoState extends State<LoginDemo> {
                     hintText: 'Enter valid email id as abc@gmail.com'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
@@ -85,33 +85,33 @@ class _LoginDemoState extends State<LoginDemo> {
                     hintText: 'Enter secure password'),
               ),
             ),
-            SizedBox(height: 20,),
-            Text(
+            const SizedBox(height: 20,),
+            const Text(
               'Forgot Password',
               style: TextStyle(color: Colors.blue, fontSize: 15),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Container(
               height: 50,
               width: 250,
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
-                key: Key('login'),
+                key: const Key('login'),
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => MyHomePage(title: "Success",)));
+                      context, MaterialPageRoute(builder: (_) => const MyHomePage(title: "Success",)));
                 },
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text('New User? Create Account')
+            const Text('New User? Create Account')
           ],
         ),
       ),
