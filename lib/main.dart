@@ -32,11 +32,13 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
+  const LoginDemo({super.key});
+
   @override
-  _LoginDemoState createState() => _LoginDemoState();
+  LoginDemoState createState() => LoginDemoState();
 }
 
-class _LoginDemoState extends State<LoginDemo> {
+class LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +52,7 @@ class _LoginDemoState extends State<LoginDemo> {
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
               child: Center(
-                child: Container(
+                child: SizedBox(
                     width: 200,
                     height: 150,
                     key: const Key("image"),
